@@ -9,44 +9,16 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="showAlert">Alert Göster</button>
-        <button v-on:click="counter++">Arttır</button>
-        <button v-on:click="counter+=2">2 Arttır</button>
-        <p> {{ counter > 10 ? "Counter 10' dan büyüktür." : "Counter 10' dan küçüktür." }} </p>
-        <button v-on:click="_counter()">Arttır</button>
-        <p>{{ counter }}</p>
-        <p>{{ (counter *10) /2 }}</p>
-        <p v-on:mousemove="updateCoords(2,$event)">Koordinatlar : {{ x }}, {{ y }}  
-            <span v-on:mousemove.stop>GİZLİ BÖLME</span>
-        </p>
-        <!-- "v-on:keyup" ile input içinde bir tuşa basılıp bırakıldığında tetikleme olur
-             "v-on:keyup.enter.space" ile sadece "enter" ve "space" tuşlarına basılırsa çalışır.-->
-        <input type="text" v-on:keyup.enter.space="showAlert2">
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+        <h3>{{ name }}</h3>
     </div>
 </body>
 <script type="text/javascript">
     new Vue({
         el : '#app',
         data : {
-            counter : 0,
-            x : 0,
-            y : 0,
-        },
-        methods : {
-            showAlert : function(){
-                alert();
-            },
-            _counter : function(){
-                this.counter++;
-            },
-            updateCoords : function(step,event){
-                this.counter += step;
-                this.x = event.clientX;
-                this.y = event.clientY;
-            },
-            showAlert2 : function(event){
-                alert(event.target.value);
-            }
+            name : "Ahmet",
         }
     });
 </script>
