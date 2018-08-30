@@ -9,16 +9,36 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="name">
-        <p>{{ name }}</p>
-        <h3>{{ name }}</h3>
+        <button v-on:click="counter++">Arttır</button>
+        <button v-on:click="counter--">Azalt</button>
+        <button v-on:click="secondCounter++">2. Counter'i Arttır</button>
+
+        <p>Counter : {{ counter }} | {{ secondCounter }} </p>
+        <p> {{ result() }} | {{ output }} </p>   
     </div>
+
+
 </body>
 <script type="text/javascript">
     new Vue({
         el : '#app',
         data : {
-            name : "Ahmet",
+            counter : 0,
+            secondCounter : 0
+        },
+        methods : {
+            result : function(){
+                console.log('Method Çalıştı...');
+                return this.counter > 10 ? "10'dan büyüktür." : "10'dan küçüktür.";
+            }
+        },
+        // "computed" method gibi yazılır, "property" gibi çağrılır.
+        // methoddan farkı, performanslı oluşudur.
+        computed : {
+            output : function(){
+                console.log("Computed Çalıştı..");
+                return this.counter > 10 ? "10'dan büyüktür." : "10'dan küçüktür.";
+            }
         }
     });
 </script>
