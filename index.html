@@ -14,24 +14,22 @@
         display: inline-block;
         margin-right: 5px;
     }
-    .yellow{
-        background-color: #fbbd08;
+    .green{
+        background-color: green;
     }
     .blue{
         background-color: blue;
-    }
-    .green{
-        background-color: green;
     }
     </style>
 </head>
 <body>
     <div id="app">
-        <div @click="attachedClass = !attachedClass" :class="divClass" class="box"></div>
-        <div :class="{ yellow : attachedClass }" class="box"></div>
-        <div class="box" :class="[color, { yellow : attachedClass }]" ></div>
+        <div class="box" :style="{ 'background-color' : color }"></div>
+        <div class="box" :style="customStyle"></div>
+        <div class="box" :style="[customStyle, {width: yukseklik +'px'} ]"></div>
         <hr>
         <input type="text" v-model="color">
+        <input type="text" v-model="yukseklik">
     </div>
 
 
@@ -40,14 +38,14 @@
     new Vue({
         el : '#app',
         data :{
-            attachedClass : false,
             color : "green",
+            yukseklik : 100,
         },
         computed : {
-            divClass : function() {
+            customStyle : function(){
                 return {
-                    yellow : this.attachedClass,
-                    blue : !this.attachedClass  
+                    'background-color' : this.color,
+                    height : this.yukseklik + "px"
                 }
             }
         }
