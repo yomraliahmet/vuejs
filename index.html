@@ -12,6 +12,7 @@
         <!-- "v-once" parametresi tanımlanmış ilk değeri alır, sonradan değiştirilse bile bu değişikliklerden etkilenmez. -->
         <p v-once> {{ title }}</p>
         <p>{{ hello() }} <a v-bind:href="link">Link</a></p>
+        <p v-html="blogLink"></p>
     </div>
 </body>
 <script type="text/javascript">
@@ -21,6 +22,7 @@
             title : 'Merhaba, dünya ',
             message : 'Ziyaretçi hoşgeldin!.',
             link : 'https://www.google.com',
+            blogLink : '<a href="http://www.google.com.tr">Google</a>',
         },
         methods : {
             hello : function(){
