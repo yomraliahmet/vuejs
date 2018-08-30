@@ -10,7 +10,8 @@
 <body>
     <div id="app">
         <!-- Süslü parantezler içerisine gelen veri her zaman stringdir, array, json v.b. olamaz. -->
-        <p>{{ hello() }}</p>
+        <!-- Attribute içerisine veri aktarırken süslü parantezler işe yaramaz, "v-bind:attribute" şeklinde kullanılır. -->
+        <p>{{ hello() }} <a v-bind:href="link">Link</a></p>
     </div>
 </body>
 <script type="text/javascript">
@@ -19,6 +20,7 @@
         data : {
             title : 'Merhaba, ',
             message : 'Ziyaretçi hoşgeldin!.',
+            link : 'https://www.google.com',
         },
         methods : {
             hello : function(){
