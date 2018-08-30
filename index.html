@@ -9,10 +9,8 @@
 </head>
 <body>
     <div id="app">
-        <h1>{{ title }}</h1>
-        <hr>
-        <input type="text" v-on:input="changeTitle">
-        <p>{{ description }}</p>
+        <!-- Süslü parantezler içerisine gelen veri her zaman stringdir, array, json v.b. olamaz. -->
+        <p>{{ hello() }}</p>
     </div>
 </body>
 <script type="text/javascript">
@@ -20,11 +18,10 @@
         el : '#app',
         data : {
             title : 'Merhaba Vuejs',
-            description : 'Bu bir açıklamadır.',
         },
         methods : {
-            changeTitle : function(event) {
-                this.description = event.target.value;
+            hello : function(){
+                return "Hello World";
             }
         }
     });
