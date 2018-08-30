@@ -6,17 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vuejs Dersleri</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+        display: inline-block;
+        margin-right: 5px;
+    }
+    .yellow{
+        background-color: #fbbd08;
+    }
+    .blue{
+        background-color: blue;
+    }
+    .green{
+        background-color: green;
+    }
+    </style>
 </head>
 <body>
-    <!--
-        Kısa Yazım Şekilleri
-        
-        v-on:click = @click
-        v-bind:href = :href
-    -->
     <div id="app">
-        <button @click="changeLink">Linki değiştirmek için tıklayın.</button>
-        <a :href="link">Link</a>
+        <div @click="attachedClass = !attachedClass" :class="divClass" class="box"></div>
+        <div :class="{ yellow : attachedClass }" class="box"></div>
+        <div class="box" :class="[color, { yellow : attachedClass }]" ></div>
+        <hr>
+        <input type="text" v-model="color">
     </div>
 
 
@@ -24,12 +39,16 @@
 <script type="text/javascript">
     new Vue({
         el : '#app',
-        data : {
-            link : "https://www.google.com",
+        data :{
+            attachedClass : false,
+            color : "green",
         },
-        methods : {
-            changeLink : function(){
-                this.link = "https://www.mynet.com";
+        computed : {
+            divClass : function() {
+                return {
+                    yellow : this.attachedClass,
+                    blue : !this.attachedClass  
+                }
             }
         }
     });
