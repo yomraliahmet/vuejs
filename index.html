@@ -13,7 +13,7 @@
         <button v-on:click="counter++">Arttır</button>
         <button v-on:click="_counter()">Arttır</button>
         <p>{{ counter }}</p>
-        <p v-on:mousemove="updateCoords">Koordinatlar : {{ x }}, {{ y }}  </p>
+        <p v-on:mousemove="updateCoords(2,$event)">Koordinatlar : {{ x }}, {{ y }}  </p>
     </div>
 </body>
 <script type="text/javascript">
@@ -31,7 +31,8 @@
             _counter : function(){
                 this.counter++;
             },
-            updateCoords : function(event){
+            updateCoords : function(step,event){
+                this.counter += step;
                 this.x = event.clientX;
                 this.y = event.clientY;
             }
