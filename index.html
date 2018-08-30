@@ -9,25 +9,24 @@
 </head>
 <body>
     <div id="app">
-        <!-- "v-once" parametresi tanımlanmış ilk değeri alır, sonradan değiştirilse bile bu değişikliklerden etkilenmez. -->
-        <p v-once> {{ title }}</p>
-        <p>{{ hello() }} <a v-bind:href="link">Link</a></p>
-        <p v-html="blogLink"></p>
+        <button v-on:click="showAlert">Alert Göster</button>
+        <button v-on:click="counter++">Arttır</button>
+        <button v-on:click="_counter()">Arttır</button>
+        <p>{{ counter }}</p>
     </div>
 </body>
 <script type="text/javascript">
     new Vue({
         el : '#app',
         data : {
-            title : 'Merhaba, dünya ',
-            message : 'Ziyaretçi hoşgeldin!.',
-            link : 'https://www.google.com',
-            blogLink : '<a href="http://www.google.com.tr">Google</a>',
+            counter : 0,
         },
         methods : {
-            hello : function(){
-                this.title = 'Merhaba, ';
-                return this.title;
+            showAlert : function(){
+                alert();
+            },
+            _counter : function(){
+                this.counter++;
             }
         }
     });
