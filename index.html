@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="app">
-        <!-- Süslü parantezler içerisine gelen veri her zaman stringdir, array, json v.b. olamaz. -->
-        <!-- Attribute içerisine veri aktarırken süslü parantezler işe yaramaz, "v-bind:attribute" şeklinde kullanılır. -->
+        <!-- "v-once" parametresi tanımlanmış ilk değeri alır, sonradan değiştirilse bile bu değişikliklerden etkilenmez. -->
+        <p v-once> {{ title }}</p>
         <p>{{ hello() }} <a v-bind:href="link">Link</a></p>
     </div>
 </body>
@@ -18,13 +18,14 @@
     new Vue({
         el : '#app',
         data : {
-            title : 'Merhaba, ',
+            title : 'Merhaba, dünya ',
             message : 'Ziyaretçi hoşgeldin!.',
             link : 'https://www.google.com',
         },
         methods : {
             hello : function(){
-                return this.title + this.message;
+                this.title = 'Merhaba, ';
+                return this.title;
             }
         }
     });
