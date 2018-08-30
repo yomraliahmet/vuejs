@@ -13,6 +13,7 @@
         <button v-on:click="counter++">Arttır</button>
         <button v-on:click="_counter()">Arttır</button>
         <p>{{ counter }}</p>
+        <p v-on:mousemove="updateCoords">Koordinatlar : {{ x }}, {{ y }}  </p>
     </div>
 </body>
 <script type="text/javascript">
@@ -20,6 +21,8 @@
         el : '#app',
         data : {
             counter : 0,
+            x : 0,
+            y : 0,
         },
         methods : {
             showAlert : function(){
@@ -27,6 +30,10 @@
             },
             _counter : function(){
                 this.counter++;
+            },
+            updateCoords : function(event){
+                this.x = event.clientX;
+                this.y = event.clientY;
             }
         }
     });
