@@ -8,9 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <!--  -->
+    
     <div id="app">
         <li v-for="(product, index) in products">{{ index }} - {{ product }}</li>
+
+        <!-- template elementi vue tarafından sağlanır ve render edilmez.Kapsayıcı niteliği taşır.  -->
+        <template v-for="(product, index) in products">
+            <h3>{{ index }} - {{ product }} </h3>
+        </template>
     </div>
 
 
