@@ -10,7 +10,7 @@
 <body>
     <!--  -->
     <div id="app">
-        <li v-for="product in products">{{ product }}</li>
+        <li v-for="(product, index) in products">{{ index }} - {{ product }}</li>
     </div>
 
 
