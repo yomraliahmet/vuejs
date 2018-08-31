@@ -6,30 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vuejs Dersleri</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <style>
-    .box{
-        width: 100px;
-        height: 100px;
-        background-color: gray;
-        display: inline-block;
-        margin-right: 5px;
-    }
-    .green{
-        background-color: green;
-    }
-    .blue{
-        background-color: blue;
-    }
-    </style>
 </head>
 <body>
     <div id="app">
-        <div class="box" :style="{ 'background-color' : color }"></div>
-        <div class="box" :style="customStyle"></div>
-        <div class="box" :style="[customStyle, {width: yukseklik +'px'} ]"></div>
-        <hr>
-        <input type="text" v-model="color">
-        <input type="text" v-model="yukseklik">
+        <p v-if="show">Beni Görebilirsin.</p>
+        <p v-else>Beni görebilirmisin Acaba? :)</p>
+        <button @click="show = !show">Göster / Gizle</button>
+
+
+        <p v-if="sayi < 10">Sayı 10'dan küçüktür.</p>
+        <p v-else-if="sayi > 10"> Sayı 10'dan büyüktür.</p>
+        <p v-else> Sayı 10'a eşittir.</p>
     </div>
 
 
@@ -37,18 +24,11 @@
 <script type="text/javascript">
     new Vue({
         el : '#app',
-        data :{
-            color : "green",
-            yukseklik : 100,
-        },
-        computed : {
-            customStyle : function(){
-                return {
-                    'background-color' : this.color,
-                    height : this.yukseklik + "px"
-                }
-            }
+        data : {
+            show : false,
+            sayi : 5
         }
+
     });
 </script>
 </html>
