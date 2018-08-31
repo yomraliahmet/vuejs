@@ -8,18 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <!-- v-if, v-else elementi domdan kaldırır, v-show ise sadece gizler "display:none" yapar.. -->
+    <!--  -->
     <div id="app">
-        <p v-if="show">Beni Görebilirsin.</p>
-        <p v-else>Beni görebilirmisin Acaba? :)</p>
-        <button @click="show = !show">Göster / Gizle</button>
-
-        <p v-if="sayi < 10">Sayı 10'dan küçüktür.</p>
-        <p v-else-if="sayi > 10"> Sayı 10'dan büyüktür.</p>
-        <p v-else> Sayı 10'a eşittir.</p>
-        <hr>
-        <button @click="showParagraph = !showParagraph">Göster / Gizle</button>
-        <p v-show="showParagraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nesciunt quidem placeat perspiciatis explicabo laudantium odio commodi ut ad doloremque sunt, minus suscipit cum vero porro blanditiis consequatur assumenda unde?</p>
+        <li v-for="product in products">{{ product }}</li>
     </div>
 
 
@@ -28,9 +19,7 @@
     new Vue({
         el : '#app',
         data : {
-            show : false,
-            sayi : 5,
-            showParagraph : false,
+            products : ["Monitör","Klavye","Askı","Masa"],
         }
 
     });
