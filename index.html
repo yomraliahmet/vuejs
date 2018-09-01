@@ -10,11 +10,10 @@
 <body>
     
     <div id="app">
+        <h1 ref="baslik">Burası başlık</h1>
         {{ text }}
-    </div>
-    <div id="app1">
-        {{ text }}
-        <button @click="changeTitle">Değiştir.</button>
+        <!-- ref="myButton" tanımı vue içerisinden bu butone ulaşılmasını sağlıyor.  -->
+        <button @click="changeTitle" ref="myButton">Değiştir.</button>
     </div>
 </body>
 <script type="text/javascript">
@@ -22,23 +21,19 @@ var vue1 =  new Vue({
         el : '#app',
         data : {
             text : "Merhaba Dünya",
-        }
-    });
-
-setTimeout(function(){
-    vue2.text = "Timer Tarafından değiştirildi.";
-},2000);
-
-var vue2 = new Vue({
-        el : '#app1',
-        data : {
-            text : "Merhaba VueJS",
         },
         methods : {
             changeTitle : function(){
-                vue1.text = "Merhaba evlet, Bu text değiştirildi..";
+                this.text = "Merhaba bu değişti.";
+                // Butona bu şekilde ulaşılıyor.
+                this.$refs.myButton.innerText = "Hehe Değişti";
+
             }
         }
     });
+    vue1.adsoyad = "Ahmet YILDIRIM";
+    vue1.$refs.baslik.innerText = "Başlık Değişti";
+
+    console.log(vue1);
 </script>
 </html>
