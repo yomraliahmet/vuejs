@@ -15,6 +15,8 @@
         <!-- ref="myButton" tanımı vue içerisinden bu butone ulaşılmasını sağlıyor.  -->
         <button @click="changeTitle" ref="myButton">Değiştir.</button>
     </div>
+
+    <div id="app1"></div>
 </body>
 <script type="text/javascript">
 var vue1 =  new Vue({
@@ -32,5 +34,19 @@ var vue1 =  new Vue({
     });
     // $mount() kullanımı Vue instance içinde "el" kullanılmadığı durumlarda sonradan tanımlamaya yarar.
     vue1.$mount("#app");
+
+
+var vue2 = new Vue({
+    template : '<h1>Hepimiz Kardeşiz..</h1>',
+});
+
+// 1. Yol : direkt div idsi mount ediliyor.
+//vue2.$mount("#app1");
+
+// 2. Yol : render edilen element sonradan div içine "vue2.$el" şeklinde aktarılıyor.
+vue2.$mount();
+document.getElementById('app1').appendChild(vue2.$el);
+
+
 </script>
 </html>
