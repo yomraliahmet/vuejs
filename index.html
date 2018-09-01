@@ -10,42 +10,49 @@
 <body>
     
     <div id="app">
-        <h1 ref="baslik">Burası başlık</h1>
-        {{ text }}
-        <!-- ref="myButton" tanımı vue içerisinden bu butone ulaşılmasını sağlıyor.  -->
-        <button @click="changeTitle" ref="myButton">Değiştir.</button>
-    
-        <hello></hello>
-        <hello></hello>
-        <hello></hello>
-    
+        <h1> {{ title }} </h1>
+        <button @click="title = 'Değiştirildi'">Değiştir</button>
+        <button @click="destroy" >Destroy</button>
     </div>
 
 
 
 </body>
 <script type="text/javascript">
-
-Vue.component('hello', {
-    template : '<h1>Bu bir Komponent</h1>',
-});
-
-var vue1 =  new Vue({
-        el : "#app",
-        data : {
-            text : "Merhaba Dünya",
-        },
-        methods : {
-            changeTitle : function(){
-                this.text = "Merhaba bu değişti.";
-                // Butona bu şekilde ulaşılıyor.
-                this.$refs.myButton.innerText = "Hehe Değişti";
-            }
+new Vue({
+    el : "#app",
+    data : {
+        title : "VueJS Instance"
+    },
+    methods : {
+        destroy : function(){
+            this.$destroy();
         }
-    });
-
-
-
-
+    },
+    beforeCreate : function(){
+        console.log("beforeCreate()");
+    },
+    created : function(){
+        console.log("created()");
+    },
+    beforeMount : function(){
+        console.log("beforeMount()");
+    },
+    mounted : function(){
+        console.log("mounted()");
+    },
+    beforeUpdate : function(){
+        console.log("beforeUpdate()");
+    },
+    updated : function(){
+        console.log("updated()");
+    },
+    beforeDestroy : function(){
+        console.log("beforeDestroy()");
+    },
+    destroyed : function(){
+        console.log("destroyed()");
+    }
+});
 </script>
 </html>
