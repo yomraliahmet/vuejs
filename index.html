@@ -14,20 +14,30 @@
     </div>
     <div id="app1">
         {{ text }}
+        <button @click="changeTitle">Değiştir.</button>
     </div>
 </body>
 <script type="text/javascript">
-    new Vue({
+var vue1 =  new Vue({
         el : '#app',
         data : {
             text : "Merhaba Dünya",
         }
     });
 
-    new Vue({
+setTimeout(function(){
+    vue2.text = "Timer Tarafından değiştirildi.";
+},2000);
+
+var vue2 = new Vue({
         el : '#app1',
         data : {
             text : "Merhaba VueJS",
+        },
+        methods : {
+            changeTitle : function(){
+                vue1.text = "Merhaba evlet, Bu text değiştirildi..";
+            }
         }
     });
 </script>
