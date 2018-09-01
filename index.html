@@ -18,7 +18,6 @@
 </body>
 <script type="text/javascript">
 var vue1 =  new Vue({
-        el : '#app',
         data : {
             text : "Merhaba Dünya",
         },
@@ -31,9 +30,7 @@ var vue1 =  new Vue({
             }
         }
     });
-    vue1.adsoyad = "Ahmet YILDIRIM";
-    vue1.$refs.baslik.innerText = "Başlık Değişti";
-
-    console.log(vue1);
+    // $mount() kullanımı Vue instance içinde "el" kullanılmadığı durumlarda sonradan tanımlamaya yarar.
+    vue1.$mount("#app");
 </script>
 </html>
