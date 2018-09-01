@@ -10,45 +10,25 @@
 <body>
     
     <div id="app">
-        <!-- :key="product"  yazdığımızda sıralamayı değiştiğimizde elemanlar olduğu gibi değişir, yazmazsak indexleri değişiyor 
-        Bu da kargaşaya neden olabiliyor.. -->
-        <li v-for="(product, index) in products" :key="product">{{ index }} - {{ product }}</li>
-
-<hr>
-        <!-- template elementi vue tarafından sağlanır ve render edilmez.Kapsayıcı niteliği taşır.  -->
-        <template v-for="(product, index) in products">
-            <h3>{{ index }} - {{ product }} </h3>
-        </template>
-        <button @click="products.push('Hoparlör')">Ekle</button>
-
-    <hr>
-
-    <li v-for="personel in persons">
-        <ul>
-            <li v-for="(value, key, index) in personel">
-                <strong>{{ key }}</strong> : {{ value }} - {{ index }}
-            </li>
-        </ul>
-    </li>
-<hr>
-    <span v-for="i in 5">{{ i }}</span>
-
-</div>
+        {{ text }}
+    </div>
+    <div id="app1">
+        {{ text }}
+    </div>
 </body>
 <script type="text/javascript">
     new Vue({
         el : '#app',
         data : {
-            products : ["Monitör","Klavye","Askı","Masa"],
-            persons : [
-                { name : "Gökhan", email : "gokhan@hotmail.com" },
-                { name : "Veysel", email : "veysel@hotmail.com" },
-                { name : "Çağdaş", email : "cagdas@hotmail.com" },
-                { name : "Nihal", email : "nihal@hotmail.com" },
-                { name : "Mert", email : "mert@hotmail.com" },
-            ]
+            text : "Merhaba Dünya",
         }
+    });
 
+    new Vue({
+        el : '#app1',
+        data : {
+            text : "Merhaba VueJS",
+        }
     });
 </script>
 </html>
