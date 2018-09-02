@@ -13,4 +13,11 @@ export default {
     
 }
 </script>
+<!-- "scoped" style kodlarının sadece bu komponent için çalışmasını sağlar. -->
+<style scoped>
+div{
+  border: 2px dashed red;
+}
+</style>
+
 

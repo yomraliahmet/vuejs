@@ -9,3 +9,8 @@ export default {
 }
 </script>
 
+<style scoped>
+div{
+    border: 2px solid rgb(255, 156, 7);
+}
+</style>
