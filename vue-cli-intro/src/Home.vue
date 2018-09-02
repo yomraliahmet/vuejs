@@ -1,26 +1,17 @@
 <template>
-<div id="bb">
-    <p>Lamba Durumu : {{ status }}</p>
-    <hr>
-    <button @click="openLamp">Lambayı Aç</button>
+<div id="vv">
+    <lamp-status v-for="i in 5" ></lamp-status>
 </div>
 
 </template>
 
 <script>
+import LampStatus from './LampStatus';
+
 export default {
-    data : function(){
-        return {
-            key : 0,
-            status : "Kapalı"
-        }
-    },
-    methods : {
-        openLamp(){
-            this.key = ! this.key;
-            this.status = this.key == 1 ? "Açık" : "Kapalı";
-            
-        }
+    components : {
+        "lamp-status" : LampStatus
     }
 }
 </script>
+
