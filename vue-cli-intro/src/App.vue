@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-      <header-component></header-component>
+      <app-header></app-header>
     <hr>
     <div class="row">
-      <server-component></server-component>
-      <serverdetails-component></serverdetails-component>
+      <app-servers></app-servers>
+      <app-servers-details></app-servers-details>
     </div>
     <hr>
-    <footer-component></footer-component>
+    <app-footer></app-footer>
   </div>
 </template>
 
@@ -18,10 +18,10 @@ import server from "./components/Server/Server";
 import serverdetails from "./components/Server/ServerDetails";
 export default{
   components : {
-    "header-component" : header,
-    "footer-component" : footer,
-    "server-component" : server,
-    "serverdetails-component" : serverdetails,
+    appHeader : header,
+    appFooter : footer,
+    appServers : server,
+    appServersDetails : serverdetails,
   }
 }
 </script>
