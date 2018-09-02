@@ -8,12 +8,16 @@
 </template>
 <script>
  export default{
-   props : ["name"],
+   props : {
+     // Validation kullanımları.
+     //name : [String, Array] // name tipi string yada array olabilir dedik.
+     name : {
+       type : String,
+       default : "google.com"
+     }
+   },
    methods : {
      switchName(){
-       // split("") name değerini boşluklardan bölerek diziye aktarır,
-       // reverse() diziyi tersten sıralar.
-       // join("") aralarına boşluk koyarak birleştirir, yani name tersten yazdırılmış olur.
        return this.name.split("").reverse().join("");
      }
    }
