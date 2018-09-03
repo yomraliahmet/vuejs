@@ -9,6 +9,8 @@
   </div>
 </template>
 <script>
+import { eventBus } from "../main.js";
+
  export default{
    props : {
      // Validation kullanımları.
@@ -27,6 +29,11 @@
        // $emit() parent componente veri göndermeyi sağlar.
        this.$emit("data", "kablosuzkedi");
      }
+   },
+   created(){
+     eventBus.$on("ageWasEdited", (age) => {
+       this.age = age;
+     })
    }
  }
 </script>
