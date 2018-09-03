@@ -3,9 +3,10 @@
     <h1>Parent Component (User)</h1>
     <p>Burası parent component yani herşeyin import edildiği component :)</p>
     <button @click="changeName">Adımı Değiştir</button>
+    <p>Child component üzerinden gelen veri : {{ childData }} </p>
     <hr>
     <div class="row">
-      <app-user-detail :name="title"></app-user-detail>
+      <app-user-detail @data="childData = $event" :name="title"></app-user-detail>
       <app-user-edit></app-user-edit>
     </div>
   </div>
@@ -20,7 +21,8 @@
     },
     data : function (){
       return {
-        title : "Ahmet"
+        title : "Ahmet",
+        childData : ""
       }
     },
     methods : {

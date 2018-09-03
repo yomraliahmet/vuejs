@@ -4,6 +4,7 @@
     <p>Ben User.vue isimli Parent Component'in içerisindeki bir Child componentim</p>
     <p>Kullanıcı Adı : {{ name }} </p>
     <p>Kullanıcı Adı : {{ switchName() }} </p>
+    <button @click="sendToParent">Veriyi Parente Gönder</button>
   </div>
 </template>
 <script>
@@ -19,6 +20,10 @@
    methods : {
      switchName(){
        return this.name.split("").reverse().join("");
+     },
+     sendToParent(){
+       // $emit() parent componente veri göndermeyi sağlar.
+       this.$emit("data", "kablosuzkedi");
      }
    }
  }
