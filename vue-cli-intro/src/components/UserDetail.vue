@@ -4,6 +4,7 @@
     <p>Ben User.vue isimli Parent Component'in içerisindeki bir Child componentim</p>
     <p>Kullanıcı Adı : {{ name }} </p>
     <p>Kullanıcı Adı : {{ switchName() }} </p>
+    <p>Kullanıcı Yaşı : {{ age }} </p>
     <button @click="sendToParent">Veriyi Parente Gönder</button>
   </div>
 </template>
@@ -15,7 +16,8 @@
      name : {
        type : String,
        default : "google.com"
-     }
+     },
+     age : Number
    },
    methods : {
      switchName(){
